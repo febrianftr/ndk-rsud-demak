@@ -18,17 +18,13 @@ if ($_SESSION['level'] == "radiographer") {
 
     <body>
         <?php include('../sidebar-index.php'); ?>
-        <div class="container-fluid" id="main">
+        <div class="container-fluid" id="content2">
             <div class="row">
                 <?php include('../view-push-notification-index.php'); ?>
             </div>
         </div>
         <br><br>
-        <div class="footerindex">
-            <div class="">
-                <?php include('footer-itw.php'); ?>
-            </div>
-        </div>
+
         <?php include('script-footer.php'); ?>
         <script>
             $(document).ready(function() {
