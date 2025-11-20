@@ -231,7 +231,7 @@ $moreThanUSGDoppler2hourReguler = $waitingUSGDoppler2hourReguler["jumlah"];
 
 
 <div class="table-view">
-	<div class="col-md-12 table-box" style="overflow-x:auto;  position: relative;  padding-top: 50px;">
+	<div class="col-md-12 table-box" style="overflow-x:visible;  position: relative;  padding-top: 50px;">
 		<?php require_once 'formsearch.php'; ?>
 		<table class="table-dicom" id="purchase_order" style="width: 2400px;" cellpadding="8" cellspacing="0">
 			<thead class="thead1">
