@@ -256,7 +256,7 @@ while ($row = mysqli_fetch_array($result)) {
       $editworkload = "";
     }
     $level =
-      HOROSFIRST . $study_iuid . HOROSLAST .
+      // HOROSFIRST . $study_iuid . HOROSLAST .
       RADIANTFIRST . $study_iuid . RADIANTLAST .
       OHIFNEWFIRST . $study_iuid . OHIFNEWLAST .
       CHANGEDOCTORFIRST . "'$study_iuid', '$dokradid', '$workload_status'" . CHANGEDOCTORLAST . $icon_change_doctor . CHANGEDOCTORVERYLAST .
@@ -333,7 +333,7 @@ while ($row = mysqli_fetch_array($result)) {
 	<button class="btn filter-btn2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Action</button><div class="dropdown-menu dropdown-menu-right dropdown-menu1" aria-labelledby="dropdownMenuButton1">' . PDFFIRST . $study_iuid . PDFLAST . $level . '</div>';
   $sub_array[] = $status . '&nbsp;' . $badge;
-  $sub_array[] = $detail . '&nbsp;' . $priority_style;
+  $sub_array[] = '<div style="text-align: start; padding-left: 5px;">' . $detail . '&nbsp;' . $priority_style . '</div>';
   $sub_array[] = $pat_id;
   $sub_array[] = $no_foto;
   $sub_array[] = $pat_birthdate;

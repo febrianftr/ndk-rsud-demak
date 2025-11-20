@@ -174,7 +174,7 @@ while ($row = mysqli_fetch_array($query)) {
             // LINKOHIFFIRST . EXTLINKOHIF . $addonlinkohif . $row['study_iuid'] . EXTLINKOHIF . LINKOHIFLAST;
         } else {
             $aksi = PDFFIRST . $study_iuid . PDFLAST .
-                HOROSFIRST . $study_iuid . HOROSLAST .
+                // HOROSFIRST . $study_iuid . HOROSLAST .
                 RADIANTFIRST . $study_iuid . RADIANTLAST .
                 OHIFNEWFIRST . $study_iuid . OHIFNEWLAST;
         }
@@ -210,7 +210,7 @@ while ($row = mysqli_fetch_array($query)) {
         "no" => $i,
         "report" => '<div class="dropdown custom-dropdown1 dropright"><button class="btn filter-btn2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button><div class="dropdown-menu dropdown-menu-right dropdown-menu1" aria-labelledby="dropdownMenuButton1">' . $aksi . '</div>',
         "status" => $status . '&nbsp;' . $badge,
-        "pat_name" => $detail . '&nbsp;' . $priority_style,
+        "pat_name" => '<div style="text-align: start; padding-left: 5px;">' . $detail . '&nbsp;' . $priority_style . '</div>',
         "mrn" => $pat_id,
         "no_foto" => $no_foto,
         "pat_birthdate" => $pat_birthdate,

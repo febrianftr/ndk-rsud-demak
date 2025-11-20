@@ -396,24 +396,25 @@ if ($_SESSION['level'] == "radiology") {
 												</div> -->
 												<div class="col-md-12"><label>Viewer :</label></div>
 												<div class="col-sm-6">
-													<a href="<?= LINKHOROSFIRST . $study_iuid . LINKHOROSLAST; ?>" class="btn-viewer-nd btn-ohif-nd mb-2">
+													<!-- <a href="<?= LINKHOROSFIRST . $study_iuid . LINKHOROSLAST; ?>" class="btn-viewer-nd btn-ohif-nd mb-2">
 														<img src="../image/new/horos.png" style="width: 20px">
 														<p class="text-viewer-nd">Horos</p>
-													</a>
+													</a> -->
 													<a href="<?= LINKRADIANTFIRST . $study_iuid . LINKRADIANTLAST; ?>" target="_blank" class="btn-viewer-nd btn-radiant-nd mb-2">
 														<img src="../image/radiAnt.png" style="width: 20px">
 														<p class="text-viewer-nd">Radiant</p>
 													</a>
-													<a class="btn-viewer-nd btn-ino-nd mb-2" onclick="<?= LINKINOBITECFIRST . "'" . $study_iuid . "'" . LINKINOBITECLAST; ?>">
+													<!-- <a class="btn-viewer-nd btn-ino-nd mb-2" onclick="<?= LINKINOBITECFIRST . "'" . $study_iuid . "'" . LINKINOBITECLAST; ?>">
 														<img src="../image/new/inobitec.png" style="width: 20px">
 														<p class="text-viewer-nd">Inobitech</p>
-													</a>
-												</div>
-												<div class="col-sm-6">
+													</a> -->
 													<a href="<?= LINKOHIFNEWFIRST . $study_iuid . LINKOHIFNEWLAST; ?>" class="btn-viewer-nd btn-ohif-nd mb-2">
 														<img src="../image/new/ohif-nd.svg" style="width: 20px">
 														<p class="text-viewer-nd">Web</p>
 													</a>
+												</div>
+												<div class="col-sm-6">
+
 													<a href="<?= LINKHTMLFIRST . $study_iuid . LINKHTMLLAST; ?>" class="btn-viewer-nd btn-html-nd mb-2">
 														<img src="../image/new/html-nd.svg" style="width: 20px">
 														<p class="text-viewer-nd">HTML</p>
