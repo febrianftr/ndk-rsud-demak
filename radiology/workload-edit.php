@@ -637,31 +637,31 @@ if ($_SESSION['level'] == "radiology") {
 			</script>
 			<!-- -------------------javascript select temlate-------------- -->
 			<script>
-				$(document).ready(function() {
-					$(".data-order").hide();
-					$(".work-patient").css("background", "#68b399");
-					$(".work-order").css("background", "#f1f1f1");
-					$(".work-patient a").css("color", "#fff");
-					$(".work-order a").css("color", "#68b399");
-					$(".button-work-order").click(function() {
-						$(".work-order").css("background", "#68b399");
-						$(".work-patient").css("background", "#f1f1f1");
-						$(".work-order a").css("color", "#fff");
-						$(".work-patient a").css("color", "#68b399");
-						$(".data-order").show();
-						$(".data-patient").hide();
-					});
-				});
-				$(document).ready(function() {
-					$(".button-work-patient").click(function() {
-						$(".work-patient").css("background", "#68b399");
-						$(".work-order").css("background", "#f1f1f1");
-						$(".work-patient a").css("color", "#fff");
-						$(".work-order a").css("color", "#68b399");
-						$(".data-patient").show();
-						$(".data-order").hide();
-					});
-				});
+				// $(document).ready(function() {
+				// 	$(".data-order").hide();
+				// 	$(".work-patient").css("background", "#68b399");
+				// 	$(".work-order").css("background", "#f1f1f1");
+				// 	$(".work-patient a").css("color", "#fff");
+				// 	$(".work-order a").css("color", "#68b399");
+				// 	$(".button-work-order").click(function() {
+				// 		$(".work-order").css("background", "#68b399");
+				// 		$(".work-patient").css("background", "#f1f1f1");
+				// 		$(".work-order a").css("color", "#fff");
+				// 		$(".work-patient a").css("color", "#68b399");
+				// 		$(".data-order").show();
+				// 		$(".data-patient").hide();
+				// 	});
+				// });
+				// $(document).ready(function() {
+				// 	$(".button-work-patient").click(function() {
+				// 		$(".work-patient").css("background", "#68b399");
+				// 		$(".work-order").css("background", "#f1f1f1");
+				// 		$(".work-patient a").css("color", "#fff");
+				// 		$(".work-order a").css("color", "#68b399");
+				// 		$(".data-patient").show();
+				// 		$(".data-order").hide();
+				// 	});
+				// });
 			</script>
 			<script>
 				$(document).ready(function() {
