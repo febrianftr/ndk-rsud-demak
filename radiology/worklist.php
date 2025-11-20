@@ -235,9 +235,66 @@ if ($_SESSION['level'] == "radiology") {
 			<title>Expertise | Radiology Physician</title>
 			<script type="text/javascript" src="js/jquery1.10.2.js"></script>
 		</head>
+
 		<style>
 			.fill {
 				padding: 50px;
+			}
+
+			.card-custom {
+				background-color: #2a2a2a;
+				border: 1px solid #3a3a3a;
+				border-radius: 10px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+				max-width: 340px;
+				margin: 5px;
+			}
+
+			.card-header-custom {
+				font-size: 16px;
+				font-weight: 600;
+				color: #ffffff;
+				border-bottom: 1px solid #3a3a3a;
+				padding-bottom: 10px;
+				margin-bottom: 15px;
+			}
+
+			.info-item {
+				margin-bottom: 8px;
+				font-size: 13px;
+			}
+
+			.info-label {
+				color: #aaa;
+				font-weight: 500;
+				margin-right: 8px;
+			}
+
+			.btn-group-custom .btn {
+				border-radius: 6px;
+				min-width: 140px;
+				font-size: 13px;
+				padding: 10px;
+			}
+
+			.btn-pdf {
+				background-color: #007bff;
+				color: #fff;
+
+			}
+
+			.btn-pdf:hover {
+				background-color: #0069d9;
+			}
+
+			.btn-image {
+				background-color: #28a745;
+				color: #fff;
+			}
+
+			.btn-image:hover {
+				background-color: #218838;
 			}
 		</style>
 
@@ -502,64 +559,6 @@ if ($_SESSION['level'] == "radiology") {
 										<!-- history pasien berdasarkan mrn pat_iid-->
 										<b class="title-history">History Patient</b><br>
 										<div class="data-order">
-											<style>
-												.card-custom {
-													background-color: #2a2a2a;
-													border: 1px solid #3a3a3a;
-													border-radius: 10px;
-													padding: 20px;
-													box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-													max-width: 340px;
-													margin: 5px;
-												}
-
-												.card-header-custom {
-													font-size: 16px;
-													font-weight: 600;
-													color: #ffffff;
-													border-bottom: 1px solid #3a3a3a;
-													padding-bottom: 10px;
-													margin-bottom: 15px;
-												}
-
-												.info-item {
-													margin-bottom: 8px;
-													font-size: 13px;
-												}
-
-												.info-label {
-													color: #aaa;
-													font-weight: 500;
-													margin-right: 8px;
-												}
-
-												.btn-group-custom .btn {
-													border-radius: 6px;
-													min-width: 140px;
-													font-size: 13px;
-													padding: 10px;
-												}
-
-												.btn-pdf {
-													background-color: #007bff;
-													color: #fff;
-
-												}
-
-												.btn-pdf:hover {
-													background-color: #0069d9;
-												}
-
-												.btn-image {
-													background-color: #28a745;
-													color: #fff;
-												}
-
-												.btn-image:hover {
-													background-color: #218838;
-												}
-											</style>
-
 											<?php
 											$i = 1;
 											while ($mrn = mysqli_fetch_assoc($query_mrn)) {
