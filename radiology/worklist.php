@@ -444,7 +444,7 @@ if ($_SESSION['level'] == "radiology") {
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 mb-3 padding-rl-nd">
+								<div class="col-lg-3 padding-rl-nd">
 									<div class="table-box">
 										<form action="" method="post">
 											<div class="padding-rl-less">
