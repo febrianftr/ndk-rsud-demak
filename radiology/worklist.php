@@ -447,7 +447,7 @@ if ($_SESSION['level'] == "radiology") {
 								<div class="col-md-9 padding-rl-nd">
 									<div class="table-box">
 										<!-- <div class="collapse" id="ohif"> -->
-										<iframe src="<?= "$url$uid" ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
+										<iframe src="<?= LINKOHIFNEWFIRST . $study_iuid . LINKOHIFNEWLAST; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
 										<!-- </div> -->
 										<br>
 										<!-- history pasien berdasarkan mrn pat_iid-->
@@ -639,25 +639,6 @@ if ($_SESSION['level'] == "radiology") {
 									</div>
 								</div>
 
-								<div class="col-md-9 padding-rl-nd">
-									<div class="table-box">
-										<!-- <div class="collapse" id="ohif"> -->
-										<iframe src="<?= LINKOHIFNEWFIRST . $study_iuid . LINKOHIFNEWLAST; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
-										<!-- </div> -->
-										<br>
-										<!-- history pasien berdasarkan mrn pat_iid-->
-										<b class="title-history">History Patient</b><br>
-										<div class="data-order">
-											<?php
-											$i = 1;
-											while ($mrn = mysqli_fetch_assoc($query_mrn)) {
-												$study_iuid = $mrn['study_iuid'];
-												$detail_mrn = '<a href="#" class="hasil-all penawaran-a" data-id="' . $study_iuid . '">' . removeCharacter($pat_name) . '</a>';
-											?>
-												<div class="card-custom">
-													<div class="card-header-custom">
-														<?= defaultValue($mrn['prosedur']); ?>
-													</div>
 
 							</div>
 						</div>
