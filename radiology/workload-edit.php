@@ -353,7 +353,7 @@ if ($_SESSION['level'] == "radiology") {
 								<div class="col-md-9 padding-rl-nd">
 									<div class="table-box">
 										<!-- <div class="collapse" id="ohif"> -->
-										<iframe src="<?= "$url$uid" ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
+										<iframe src="<?= "$urlnew$uid" ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
 										<!-- </div> -->
 										<br>
 										<!-- history pasien berdasarkan mrn pat_iid-->
@@ -544,7 +544,7 @@ if ($_SESSION['level'] == "radiology") {
 										</div>
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
