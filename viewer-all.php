@@ -160,7 +160,7 @@ if ($_SERVER['SERVER_NAME'] == $hostname['ip_publik'] or $_SERVER['SERVER_NAME']
     $urlnew = ohifnewurl(92);
     define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="' . $urlnew . '');
     define('OHIFNEWLAST', "$ohif_small");
-    define('LINKOHIFNEWFIRST', 'http://' . $_SERVER['SERVER_NAME'] . ':92/viewer?StudyInstanceUIDs=');
+    define('LINKOHIFNEWFIRST', $urlnew);
     define('LINKOHIFNEWLAST', '"target="_blank');
     // jika menggunakan ohif baru icon(large)
     define('OHIFNEWWORKLISTFIRST', '<a href="' . $urlnew . '');
@@ -169,7 +169,7 @@ if ($_SERVER['SERVER_NAME'] == $hostname['ip_publik'] or $_SERVER['SERVER_NAME']
     $urlnew = ohifnewurl(91);
     define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="' . $urlnew . '');
     define('OHIFNEWLAST', "$ohif_small");
-    define('LINKOHIFNEWFIRST', 'http://' . $_SERVER['SERVER_NAME'] . ':91/viewer?StudyInstanceUIDs=');
+    define('LINKOHIFNEWFIRST', $urlnew);
     define('LINKOHIFNEWLAST', '"target="_blank');
     // jika menggunakan ohif baru icon(large)
     define('OHIFNEWWORKLISTFIRST', '<a href="' . $urlnew . '');
