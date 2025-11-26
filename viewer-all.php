@@ -150,23 +150,29 @@ $ohif_large = '"class="button8 delete1" target="_blank"><img src="../image/web.s
 // untuk icon OHIF small DI WORKLIST
 $ohif_small = '"target="_blank" class="dropdown-item dropdown-item1" href="#"><i class="fas fa-x-ray"></i>Viewer Web</a>';
 
+function ohifnewurl($port)
+{
+    return "http://$_SERVER[SERVER_NAME]:$port/viewer?StudyInstanceUIDs=";
+}
 // OHIF TERBARU
 if ($_SERVER['SERVER_NAME'] == $hostname['ip_publik'] or $_SERVER['SERVER_NAME'] == '49.128.176.141') {
     // jika menggunakan ip publik
-    define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="http://' . $_SERVER['SERVER_NAME'] . ':92/viewer?StudyInstanceUIDs=');
-    define('LINKOHIFNEWFIRST', 'http://' . $_SERVER['SERVER_NAME'] . ':92/viewer?StudyInstanceUIDs=');
+    $urlnew = ohifnewurl(92);
+    define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="' . $urlnew . '');
     define('OHIFNEWLAST', "$ohif_small");
+    define('LINKOHIFNEWFIRST', $urlnew);
     define('LINKOHIFNEWLAST', '"target="_blank');
     // jika menggunakan ohif baru icon(large)
-    define('OHIFNEWWORKLISTFIRST', '<a href="http://' . $_SERVER['SERVER_NAME'] . ':92/viewer?StudyInstanceUIDs=');
+    define('OHIFNEWWORKLISTFIRST', '<a href="' . $urlnew . '');
     define('OHIFNEWWORKLISTLAST', "$ohif_large");
 } else {
-    define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="http://' . $_SERVER['SERVER_NAME'] . ':91/viewer?StudyInstanceUIDs=');
-    define('LINKOHIFNEWFIRST', 'http://' . $_SERVER['SERVER_NAME'] . ':91/viewer?StudyInstanceUIDs=');
+    $urlnew = ohifnewurl(91);
+    define('OHIFNEWFIRST', '<a style="text-decoration:none;" class="dropdown-item dropdown-item1" href="' . $urlnew . '');
     define('OHIFNEWLAST', "$ohif_small");
+    define('LINKOHIFNEWFIRST', $urlnew);
     define('LINKOHIFNEWLAST', '"target="_blank');
     // jika menggunakan ohif baru icon(large)
-    define('OHIFNEWWORKLISTFIRST', '<a href="http://' . $_SERVER['SERVER_NAME'] . ':91/viewer?StudyInstanceUIDs=');
+    define('OHIFNEWWORKLISTFIRST', '<a href="' . $urlnew . '');
     define('OHIFNEWWORKLISTLAST', "$ohif_large");
 }
 

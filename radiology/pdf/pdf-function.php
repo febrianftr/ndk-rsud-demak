@@ -131,8 +131,8 @@ function pdfProsesExpertise($uid, $pdf)
     }
 
 
-    $pdf->image($kop_surat_image, 0, 0, 210);
-    $pdf->MultiCell(0, 20, '', 0, "J", false);
+    $pdf->image($kop_surat_image, 4, 5, 212);
+    $pdf->MultiCell(0, 15, '', 0, "J", false);
 
     if ($pat_sex == 'M') {
         $pat_sex_ind = 'Laki-Laki';
@@ -202,7 +202,7 @@ function pdfProsesExpertise($uid, $pdf)
     $pdf->Cell(35, 5, '', 0, 0, 'L');
     $pdf->Cell(3, 5, '', 0, 0, 'L');
     $pdf->Cell(65, 5, $study_desc_two, 0, 1, 'L');
-    $pdf->Line(16, 73, 198, 73);
+    $pdf->Line(16, 65, 198, 65);
     $fill = str_replace("&nbsp;", " ", $fill);
     $fill = str_replace("&ndash;", "-", $fill);
     $fill = str_replace("&agrave;", "->", $fill);
@@ -305,7 +305,7 @@ function pdfProsesImage($uid, $series_iuids, $pdf)
             try {
                 $client = new Client();
                 $sop_iuid = $row_series_instance["sop_iuid"];
-                $link_dicom_jpg = "http://127.0.0.1:9090/dcm4chee-arc/aets/DCM4CHEE/wado?requestType=WADO&studyUID=$uid&seriesUID=$series_iuid&objectUID=$sop_iuid";
+                $link_dicom_jpg = "http://$_SERVER[SERVER_ADDR]:9090/dcm4chee-arc/aets/DCM4CHEE/wado?requestType=WADO&studyUID=$uid&seriesUID=$series_iuid&objectUID=$sop_iuid";
                 // $link_dicom_jpg = "http://118.99.77.50:9090/dcm4chee-arc/aets/DCM4CHEE/wado?requestType=WADO&studyUID=1.3.12.2.1107.5.1.7.106949.30000024042307531537400000008";
                 // $dicom_jpg = @file_get_contents($link_dicom_jpg) === false ? $url . 'barcode-default.PNG' : $link_dicom_jpg;
 

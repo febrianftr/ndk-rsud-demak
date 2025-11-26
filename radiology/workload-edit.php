@@ -350,6 +350,94 @@ if ($_SESSION['level'] == "radiology") {
 										</div>
 									</div>
 								</div>
+								<div class="col-md-9 padding-rl-nd">
+									<div class="table-box">
+										<!-- <div class="collapse" id="ohif"> -->
+										<iframe src="<?= "$urlnew$uid" ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
+										<!-- </div> -->
+										<br>
+										<!-- history pasien berdasarkan mrn pat_iid-->
+										<b class="title-history">History Patient</b><br>
+										<div class="data-order">
+											<?php
+											$i = 1;
+											while ($mrn = mysqli_fetch_assoc($query_mrn)) {
+												$study_iuid = $mrn['study_iuid'];
+												$detail_mrn = '<a href="#" class="hasil-all penawaran-a" data-id="' . $study_iuid . '">' . removeCharacter($pat_name) . '</a>';
+											?>
+												<div class="card-custom">
+													<div class="card-header-custom">
+														<?= defaultValue($mrn['prosedur']); ?>
+													</div>
+
+													<div class="info-item">
+														<span class="info-label">Date:</span> <?= defaultValueDateTime($mrn['study_datetime']); ?>
+													</div>
+													<div class="info-item">
+														<span class="info-label">Name:</span> <?= $detail_mrn . ' ' . styleStatus($mrn['status'], $study_iuid); ?>
+													</div>
+													<div class="info-item">
+														<span class="info-label">MRN:</span> <?= $pat_id; ?>
+													</div>
+
+													<hr style="border-color: #3a3a3a;">
+
+													<div class="btn-group-custom d-flex justify-content-between">
+														<a href="<?= LINKPDFFIRST . $study_iuid . LINKPDFLAST; ?>" class="btn btn-pdf">
+															<i class="fas fa-file-pdf"></i> Expertise
+														</a>
+														<a href="<?= LINKOHIFNEWFIRST . $study_iuid . LINKOHIFNEWLAST; ?>" class="btn btn-image">
+															<i class="fas fa-image"></i> Web Viewer
+														</a>
+													</div>
+												</div>
+
+												<!-- <table>
+													<tbody>
+														<p class="text-center"><?= $i; ?></p>
+														<tr>
+															<td><span class="table-left">Name</span></td>
+														</tr>
+														<tr>
+															<td><?= $detail_mrn . ' ' . styleStatus($mrn['status'], $study_iuid); ?></td>
+														</tr>
+														<tr>
+															<td><span class="table-left">MRN</span></td>
+														</tr>
+														<tr>
+															<td><?= $pat_id; ?></td>
+														</tr>
+														<tr>
+															<td><span class="table-left">Pemeriksaan</span></td>
+														</tr>
+														<tr>
+															<td><?= defaultValue($mrn['prosedur']); ?></td>
+														</tr>
+														<tr>
+															<td><span class="table-left">Waktu Pemeriksaan</span></td>
+														</tr>
+														<tr>
+															<td><strong class="text-center"><?= defaultValueDateTime($mrn['study_datetime']); ?></strong></td>
+														</tr>
+														<tr>
+															<td>
+																<?= PDFFIRST . $study_iuid . PDFLAST .
+																	HOROSFIRST . $study_iuid . HOROSLAST .
+																	RADIANTFIRST . $study_iuid . RADIANTLAST .
+																	OHIFNEWFIRST . $study_iuid . OHIFNEWLAST;
+																?>
+																<a href="#" class="view-history-expertise" data-id="<?= $study_iuid;  ?>">
+																	<i data-toggle="tooltip" title="View History Expertise" class="fa fa-file-archive-o fa-lg"></i>
+																</a>
+															</td>
+														</tr>
+													</tbody>
+												</table> -->
+											<?php $i++;
+											} ?>
+										</div>
+									</div>
+								</div>
 								<div class="col-lg-3 mb-3 padding-rl-nd">
 									<div class="table-box">
 										<form action="" method="post">
@@ -457,94 +545,6 @@ if ($_SESSION['level'] == "radiology") {
 									</div>
 								</div>
 
-								<div class="col-md-9 padding-rl-nd">
-									<div class="table-box">
-										<!-- <div class="collapse" id="ohif"> -->
-										<iframe src="<?= "$url$uid" ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="670px"></iframe>
-										<!-- </div> -->
-										<br>
-										<!-- history pasien berdasarkan mrn pat_iid-->
-										<b class="title-history">History Patient</b><br>
-										<div class="data-order">
-											<?php
-											$i = 1;
-											while ($mrn = mysqli_fetch_assoc($query_mrn)) {
-												$study_iuid = $mrn['study_iuid'];
-												$detail_mrn = '<a href="#" class="hasil-all penawaran-a" data-id="' . $study_iuid . '">' . removeCharacter($pat_name) . '</a>';
-											?>
-												<div class="card-custom">
-													<div class="card-header-custom">
-														<?= defaultValue($mrn['prosedur']); ?>
-													</div>
-
-													<div class="info-item">
-														<span class="info-label">Date:</span> <?= defaultValueDateTime($mrn['study_datetime']); ?>
-													</div>
-													<div class="info-item">
-														<span class="info-label">Name:</span> <?= $detail_mrn . ' ' . styleStatus($mrn['status'], $study_iuid); ?>
-													</div>
-													<div class="info-item">
-														<span class="info-label">MRN:</span> <?= $pat_id; ?>
-													</div>
-
-													<hr style="border-color: #3a3a3a;">
-
-													<div class="btn-group-custom d-flex justify-content-between">
-														<a href="<?= LINKPDFFIRST . $study_iuid . LINKPDFLAST; ?>" class="btn btn-pdf">
-															<i class="fas fa-file-pdf"></i> Expertise
-														</a>
-														<a href="<?= LINKOHIFNEWFIRST . $study_iuid . LINKOHIFNEWLAST; ?>" class="btn btn-image">
-															<i class="fas fa-image"></i> Web Viewer
-														</a>
-													</div>
-												</div>
-
-												<!-- <table>
-													<tbody>
-														<p class="text-center"><?= $i; ?></p>
-														<tr>
-															<td><span class="table-left">Name</span></td>
-														</tr>
-														<tr>
-															<td><?= $detail_mrn . ' ' . styleStatus($mrn['status'], $study_iuid); ?></td>
-														</tr>
-														<tr>
-															<td><span class="table-left">MRN</span></td>
-														</tr>
-														<tr>
-															<td><?= $pat_id; ?></td>
-														</tr>
-														<tr>
-															<td><span class="table-left">Pemeriksaan</span></td>
-														</tr>
-														<tr>
-															<td><?= defaultValue($mrn['prosedur']); ?></td>
-														</tr>
-														<tr>
-															<td><span class="table-left">Waktu Pemeriksaan</span></td>
-														</tr>
-														<tr>
-															<td><strong class="text-center"><?= defaultValueDateTime($mrn['study_datetime']); ?></strong></td>
-														</tr>
-														<tr>
-															<td>
-																<?= PDFFIRST . $study_iuid . PDFLAST .
-																	HOROSFIRST . $study_iuid . HOROSLAST .
-																	RADIANTFIRST . $study_iuid . RADIANTLAST .
-																	OHIFNEWFIRST . $study_iuid . OHIFNEWLAST;
-																?>
-																<a href="#" class="view-history-expertise" data-id="<?= $study_iuid;  ?>">
-																	<i data-toggle="tooltip" title="View History Expertise" class="fa fa-file-archive-o fa-lg"></i>
-																</a>
-															</td>
-														</tr>
-													</tbody>
-												</table> -->
-											<?php $i++;
-											} ?>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
