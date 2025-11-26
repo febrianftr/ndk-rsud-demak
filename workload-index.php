@@ -161,6 +161,7 @@ $waitingUSGDoppler2hourReguler = mysqli_fetch_assoc(mysqli_query(
 ));
 $moreThanUSGDoppler2hourReguler = $waitingUSGDoppler2hourReguler["jumlah"];
 ?>
+
 <div class="col-12" style="padding: 0;">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -231,7 +232,7 @@ $moreThanUSGDoppler2hourReguler = $waitingUSGDoppler2hourReguler["jumlah"];
 
 
 <div class="table-view">
-	<div class="col-md-12 table-box" style="overflow-x:visible;  position: relative;  padding-top: 50px;">
+	<div class="col-md-12 table-box" style="overflow: scroll; position: relative; padding-top: 50px;  height: 300vh;">
 		<?php require_once 'formsearch.php'; ?>
 		<table class="table-dicom" id="purchase_order" style="width: 2400px;" cellpadding="8" cellspacing="0">
 			<thead class="thead1">
@@ -243,6 +244,7 @@ $moreThanUSGDoppler2hourReguler = $waitingUSGDoppler2hourReguler["jumlah"];
 <?php require 'modal.php'; ?>
 <script src="js/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.datetimepicker.full.js"></script>
+
 <script>
 	$('#from_study_datetime').datetimepicker({
 		format: 'd-m-Y H:i',
