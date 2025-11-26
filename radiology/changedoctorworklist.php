@@ -8,7 +8,7 @@ $uid = $_GET['uid'];
 $dokradid = $_GET['dokradid'];
 $status = $_GET['status'];
 
-$query = mysqli_query(
+$query_changedoctor = mysqli_query(
 	$conn,
 	"SELECT $select_dokter_radiology 
 	FROM $table_dokter_radiology WHERE dokradid NOT LIKE '$dokradid' AND username NOT IN ('hardian_dokter', 'sarah', 'drdemo')"

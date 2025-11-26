@@ -14,6 +14,9 @@ session_start();
 $uid = $_GET['uid'];
 $username = $_SESSION['username'];
 
+$file_function = explode('\\', __FILE__);
+$file = end($file_function);
+
 // kondisi jika mapping dokter diaktifkan
 $selected_dokter_radiology = mysqli_fetch_assoc(mysqli_query(
 	$conn,
@@ -596,6 +599,21 @@ if ($_SESSION['level'] == "radiology") {
 				// end untuk menampilkan data popup
 			</script>
 			<script>
+				// copy template normal tanpa refresh
+				$(".template_name").off("click").on("click", function(e) {
+					e.preventDefault();
+					let fill = $(this).attr("value");
+					let template_id = $(this).data("template-id");
+
+					CKEDITOR.instances['ckeditor'].setData(fill);
+
+					const currentUrl = new URL(window.location.href);
+
+					const params = currentUrl.searchParams;
+					let newUrl = params.set("template_id", template_id);
+					window.history.pushState(null, null, currentUrl.toString());
+				});
+
 				CKEDITOR.replace('ckeditor', {
 					enterMode: CKEDITOR.ENTER_BR
 				});

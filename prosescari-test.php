@@ -250,7 +250,7 @@ while ($row = mysqli_fetch_array($result)) {
     if (!$queryphp) {
       // kondisi jika login radiology dan link workload.php
       $detail = '<a href="workload-edit.php?uid=' . $study_iuid . '" class="penawaran-a">' . removeCharacter(mb_convert_encoding($pat_name, 'UTF-8', 'ISO-8859-1')) . '</a>';
-      $editworkload = EDITWORKLOADFIRST . $study_iuid . EDITWORKLOADLAST;
+      $editworkload = EDITWORKLOADFIRST . $study_iuid . EDITWORKLOADLAST . CHANGEDOCTORFIRST . "'$study_iuid', '$dokradid', '$workload_status'" . CHANGEDOCTORLAST . $icon_change_doctor . CHANGEDOCTORVERYLAST;
     } else {
       // kondisi jika login radiology dan link query.php
       $editworkload = "";
@@ -259,7 +259,6 @@ while ($row = mysqli_fetch_array($result)) {
       // HOROSFIRST . $study_iuid . HOROSLAST .
       RADIANTFIRST . $study_iuid . RADIANTLAST .
       OHIFNEWFIRST . $study_iuid . OHIFNEWLAST .
-      CHANGEDOCTORFIRST . "'$study_iuid', '$dokradid', '$workload_status'" . CHANGEDOCTORLAST . $icon_change_doctor . CHANGEDOCTORVERYLAST .
       $editworkload;
     // TELEDOKTERPENGIRIMFIRST . $study_iuid . TELEDOKTERPENGIRIMLAST .
     // TELEGRAMSIGNATUREFIRST . $study_iuid . TELEGRAMSIGNATURELAST;
@@ -335,6 +334,7 @@ Action</button><div class="dropdown-menu dropdown-menu-right dropdown-menu1" ari
   $sub_array[] = $status . '&nbsp;' . $badge;
   $sub_array[] = '<div style="text-align: start; padding-left: 5px;">' . $detail . '&nbsp;' . $priority_style . '</div>';
   $sub_array[] = $pat_id;
+  $sub_array[] = $study_datetime;
   $sub_array[] = $no_foto;
   $sub_array[] = $pat_birthdate;
   $sub_array[] = $pat_sex;
@@ -345,7 +345,6 @@ Action</button><div class="dropdown-menu dropdown-menu-right dropdown-menu1" ari
   $sub_array[] = mb_convert_encoding($name_dep, 'UTF-8', 'ISO-8859-1');
   $sub_array[] = mb_convert_encoding($dokrad_name, 'UTF-8', 'ISO-8859-1');;
   $sub_array[] = READMORERADIOGRAPHERFIRST . $study_iuid . READMORERADIOGRAPHERLAST;
-  $sub_array[] = $study_datetime;
   $sub_array[] = $approved_at;
   $sub_array[] = $spendtime;
   $sub_array[]  = $i++;

@@ -4,6 +4,7 @@
     <th style="width: 70px;">Status</th>
     <th><?= $lang['patient_name'] ?></th>
     <th>MRN</th>
+    <th><?= $lang['study_date'] ?></th>
     <th>No Foto</th>
     <th><?= $lang['age'] ?></th>
     <th><?= $lang['sex'] ?></th>
@@ -14,7 +15,6 @@
     <th><?= $lang['departmen'] ?></th>
     <th><?= $lang['radiology_physician'] ?></th>
     <th><?= $lang['radiographer'] ?></th>
-    <th><?= $lang['study_date'] ?></th>
     <th><?= $lang['approve_date'] ?></th>
     <th><?= $lang['spend_time'] ?></th>
 </tr>
