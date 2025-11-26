@@ -775,10 +775,10 @@ if (is_file("../radiology/pdf/image-share/$uid.pdf") && is_file("../radiology/pd
 
 ?>
 
-<div class="container-fluid" id="main">
+<div class="container-fluid">
     <div class="row">
-        <div id="content1">
-            <div class="col-md-12 box-change-dokter table-box">
+        <div id="content1"><br><br><br>
+            <div class="col-md-12 box-change-dokter table-box" style="height: auto;">
                 <table>
                     <tr>
                         <td>UID </td>
@@ -811,7 +811,7 @@ if (is_file("../radiology/pdf/image-share/$uid.pdf") && is_file("../radiology/pd
                 </table>
             </div>
 
-            <div class="col-md-12 box-change-dokter table-box">
+            <div class="col-md-12 box-change-dokter table-box" style="height: auto;">
                 <!-- Form untuk whatsapp post -->
                 <h5>SEND WHATSAPP</h5>
                 <form method="POST">
