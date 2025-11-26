@@ -13,7 +13,7 @@ if ($_SESSION['level'] == "admin" || $_SESSION['level'] == "superadmin") {
 } else if ($_SESSION['level'] == "radiographer") {
 	header("location:radiographer/index.php");
 } else if ($_SESSION['level'] == "refferal") {
-	header("location:refferal/index.php");
+	header("location:refferal/workload.php");
 } else {
 	header("location:login.php");
 }
