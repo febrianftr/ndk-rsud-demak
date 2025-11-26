@@ -3966,12 +3966,12 @@ table.dataTable > thead .sorting_desc_disabled::after {
 
 .form-control {
   color: #eee;
-  background-color: #363636;
+  background-color:#222;
   border: unset;
 }
 .form-control:focus {
   color: #eee;
-  background-color: #363636;
+  background-color: #232121;
   box-shadow: unset;
 }
 
