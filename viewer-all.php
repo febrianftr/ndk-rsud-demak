@@ -107,7 +107,7 @@ define('WORKLISTFIRST', '<a class="dropdown-item dropdown-item1" href="worklist.
 define('WORKLISTLAST', '"><i class="fas fa-user-edit"></i> Go to Expertise</a>');
 
 // DRAFT DOKTER 
-define('DRAFTFIRST', '<a class="dropdown-item dropdown-item1" href="worklist.php?uid=');
+define('DRAFTFIRST', '<a class="dropdown-item dropdown-item1 draft-action" href="worklist.php?uid=');
 define('DRAFTLAST', '"><i style="color: yellow;" class="fas fa-user-edit"></i> Draft Expertise</a>');
 
 

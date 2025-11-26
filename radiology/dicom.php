@@ -186,6 +186,33 @@ if ($_SESSION['level'] == "radiology") {
 				});
 			});
 		</script>
+
+		<script>
+			const observer = new MutationObserver(() => {
+
+				// ambil semua icon draft-action yang muncul
+				const drafts = document.querySelectorAll(".draft-action");
+
+				drafts.forEach(draft => {
+
+					// cari parent dropdown terdekat
+					const dropdown = draft.closest(".dropdown");
+
+					if (dropdown) {
+						const btn = dropdown.querySelector(".filter-btn2");
+						if (btn) {
+							btn.style.backgroundColor = "#d54524";
+						}
+					}
+				});
+			});
+
+			// observe seluruh body
+			observer.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+		</script>
 	</body>
 
 	</html>
