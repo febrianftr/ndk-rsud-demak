@@ -39,7 +39,7 @@ function prosesApiHtml()
     echo json_encode([
         'status' => 200,
         'output' => implode('<br />', $output),
-        'input' => $inputdcm
+        'input' => "" // sengaja dikosongin
     ]);
     http_response_code(200);
 }
@@ -77,7 +77,7 @@ function validationAcc()
 
 function prosesApiOhif()
 {
-    global $uid, $aet, $acc, $pat_id, $pk_study;
+    global $conn, $uid, $aet, $acc, $pat_id, $pk_study;
     try {
         // API OHIF UPDATE ACC NUMBER 
         $clientOhif = new Client([
@@ -113,29 +113,10 @@ function prosesApiOhif()
 
         // JIKA STATUS 200 MAKA :
         if ($code == 200) {
-            // API HTML HAPUS STUDY
-            $clientHtml = new Client([
-                'base_uri' => "http://$_SERVER[SERVER_ADDR]:19898",
-            ]);
-
-            $responseHtml = $clientHtml->request('POST', '/jmx-console/HtmlAdaptor', [
-                'auth' => ['admin', 'efotoadmin'],
-                'timeout' => 200,
-                'read_timeout' => 200,
-                'form_params' => [
-                    "methodIndex" => "14",
-                    "action" => "invokeOp",
-                    "name" => "dcm4chee.archive:service=ContentEditService",
-                    "arg0" => $pk_study
-                ],
-                'http_errors' => false
-            ]);
-            $bodyHtml = $responseHtml->getBody();
-            $dataHtml = json_decode($bodyHtml, true);
-            // $code = $responseHtml->getStatusCode(); //200
 
             // API OHIF SEND STUDY KE HTML
-            $responseOhif = $clientOhif->request('POST', "/dcm4chee-arc/aets/DCM4CHEE/dimse/DCM4CHEE/studies/$uid/export/dicom:dcmPACS", [
+            $input = "/dcm4chee-arc/aets/DCM4CHEE/dimse/DCM4CHEE/studies/$uid/export/dicom:DCMROUTER";
+            $responseOhif = $clientOhif->request('POST', $input, [
                 'headers' => [
                     'Accept' => 'Application/json',
                     'Content-Type' => 'Application/json'
@@ -146,8 +127,20 @@ function prosesApiOhif()
             $dataOhif = json_decode($bodyOhif, true);
             // $code = $responseOhif->getStatusCode(); //200
 
-            // KIRIM KE AET TUJUAN
-            prosesApiHtml();
+            mysqli_query(
+                $conn,
+                "INSERT INTO dicom_router (uid, acc, request, response, created_at, updated_at) 
+                VALUES ('$uid', '$acc', '$input', '$bodyOhif', NOW(), NOW())"
+            );
+
+            logging(PHP_EOL . PHP_EOL . "['uid' : $uid, 'aet' : $aet]" . PHP_EOL . $bodyOhif, "log/send-dicom.log");
+
+            echo json_encode([
+                'status' => 200,
+                'output' => $bodyOhif,
+                'input' => "" // sengaja dikosongin
+            ]);
+            http_response_code(200);
         } else {
             // JIKA ACC NUMBER ATAU STUDY IUID TIDAK ADA
             echo json_encode([
